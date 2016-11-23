@@ -11,9 +11,3 @@
 
 <<<<<<< HEAD
 </html>
-=======
-echo 'Salut les ptits clous<br/>';
-echo 'encore';
-
- ?>
->>>>>>> ba8eb6184409c6c9a3ff7bc42bd7d63ed0d56acd
