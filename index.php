@@ -32,23 +32,49 @@ $tabABC = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
 $tab9000 = array();
-for ($i=1; $i < 9701; $i++) {
+for ($i=1; $i < 91; $i++) {
   // $name = $i. '\''. $i;
   array_push($tab9000, $i);
 }
 
 
-foreach ($tabABC as $dataABC) {
-  echo $dataABC. ' <input list="descrip" type="text">
-        <datalist id="descrip">';
-  foreach ($tab9000 as $data9000) {
-    $genFuck = $data9000.'é ë'.$data9000;
-    $genFuck = slugify($genFuck);
-    echo '<option value="'.$data9000.'a">'.$genFuck.'</option>';
-  }
-  echo '</datalist><br>';
-   // print_r($tab9000);
-}
+echo '<!DOCTYPE html>';
+echo '<html lang="fr">';
+    echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<title>Formulaire</title>';
 
+      /**********  jquery *********/
+        echo '<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>';
+        echo '<script type="text/javascript" src="test.js"></script>';
+    echo '</head>';
+    echo '<body>';
+        echo '<form method="POST" action="form.php">';
+            echo '<table>';
+                echo '<tr>';
+                    echo '<td>Cle</td>';
+                    echo '<td>Libelle1</td>';
+                    echo '<td>Action</td>';
+                echo '</tr>';
 
- ?>
+                $i = 0;
+                foreach ($tabABC as $keyABC => $dataABC)
+                {
+                    echo '<tr>';
+                        echo '<td>'.$keyABC.'</td>';
+                        echo '<td>'.$dataABC.'</td>';
+                        echo '<td>';
+                            echo '<input id="'.$i.'" class="chgtcle" list="'.$i.'_xx" type="text">';
+                            // l'attribut multiple ne fonctionne qu'avec type="email" ou "file"
+                            echo '<datalist id="'.$i.'_xx">';
+                            echo '</datalist>';
+                        echo '</td>';
+                    echo '</tr>';
+                    $i++;
+                }
+            echo '</table>';
+            //echo '<input type="submit" name="submit" value="Envoyer">';
+        echo '</form>';
+    echo '</body>';
+echo '</html>';
+?>
